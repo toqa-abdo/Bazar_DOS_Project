@@ -43,6 +43,43 @@ front.get('/books/:topic', async (req, res) => {
 });
 
 
+front.get('/books/info/:id', async (req, res) => {
+    const id = req.params.id; // Access the id parameter from the route
+
+    try {
+        const data = fs.readFileSync('./db.txt', 'utf8');
+        const lines = data.split('\n');
+
+        let bookInfo = null; // Initialize variable to store book information
+
+        lines.forEach(line => {
+            const fields = line.split('/');
+            const itemId = parseInt(fields[4]);
+
+            if (itemId === parseInt(id)) {
+                const bookName = fields[0];
+                const itemsInStock = parseInt(fields[1]);
+                const cost = parseInt(fields[2]);
+
+                bookInfo = {
+                    name: bookName,
+                    itemsInStock: itemsInStock,
+                    cost: cost
+                };
+            }
+        });
+
+        if (bookInfo) {
+            res.json(bookInfo); // Return book information if found
+        } else {
+            res.status(404).json({ error: 'Book not found' }); // Return 404 error if book with given id is not found
+        }
+    } catch (error) {
+        res.status(500).send(error.message); // Return 500 error if there's an internal server error
+    }
+});
+
+
 const port=4000;
 front.listen(port,() =>
 {
