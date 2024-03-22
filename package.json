@@ -4,14 +4,33 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-catalog": "nodemon -L src/catalog-service/catalog.js",
+    "start-order": "nodemon -L src/order-service/order.js",
+    "start-client": "nodemon -L src/client-service/front.js"
+  },
+  "nodemonConfig": {
+    "delay": "1s",
+    "watch": [
+      "src/catalog-service",
+      "src/order-service",
+      "src/client-service"
+    ],
+    "ext": "js,json"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^1.6.8",
     "body-parser": "^1.20.2",
     "express": "^4.18.2",
     "mongodb": "^5.1.0",
-    "mongoose": "^7.0.2"
+    "mongoose": "^7.0.2",
+    "node-fetch": "^3.3.2",
+    "nodemon": "^3.0.1",
+    "http": "^0.0.1-security",
+    "cors": "^2.8.5",
+    "inquirer": "^9.2.12",
+    "util": "^0.12.5"
   }
 }
