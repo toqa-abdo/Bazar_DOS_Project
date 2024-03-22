@@ -1,4 +1,4 @@
-How/4/20/distributedsystems/1
-RPCs/10/15/distributedsystems/2
-Xen/7/25/undergraduateschool/3
-Cooking/9/10/undergraduateschool/4
+How to get a good grade in DOS in 40 minutes a day/4/20/distributedsystems/1
+RPCs for Noobs/10/15/distributedsystems/2
+Xen and the Art of Surviving Undergraduate School/7/25/undergraduateschool/3
+Cooking for the Impatient Undergrad/9/10/undergraduateschool/4
